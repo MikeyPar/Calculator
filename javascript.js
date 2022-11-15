@@ -1,5 +1,8 @@
-let pressed = document.getElementById("7");
-pressed.onclick = function() {console.log("clicked")};
+
+
+function clear_display() {
+    document.getElementById("display").innerHTML = "0";
+}
 
 function operate(op, x, y) 
 {

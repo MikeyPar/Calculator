@@ -35,6 +35,8 @@ body {
     align-items: center;
     font-size: x-large;
     font-weight: bold;
+    padding-right: 5px;
+
 }
 
 .nums {
