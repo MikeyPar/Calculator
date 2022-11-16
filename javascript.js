@@ -22,7 +22,7 @@ for (let operator of operators){
     operator.addEventListener("click", function(){
         if (x != "" && y != ""){
             display.innerHTML = operate(op, x, y);
-            x = operate(op, x, y)
+            x = operate(op, x, y);
         }
         if (x != "" || undefined){
             clicked = true;
@@ -79,7 +79,7 @@ document.querySelector("#equals").addEventListener("click", function(){
     } else {
         document.getElementById("dot").disabled = true;
     }
-    
+    y = "";
     
     
 });
