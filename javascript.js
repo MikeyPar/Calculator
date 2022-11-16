@@ -3,6 +3,7 @@ var display = document.querySelector(".display");
 var operators = document.getElementsByClassName("op");
 var nums = document.getElementsByClassName("num");
 var clicked = false;
+var buttons = document.getElementsByTagName("button");
 
 /* Number Buttons */
 for (let num of nums){
@@ -19,6 +20,10 @@ for (let num of nums){
 /* Operators */
 for (let operator of operators){
     operator.addEventListener("click", function(){
+        if (x != "" && y != ""){
+            display.innerHTML = operate(op, x, y);
+            x = operate(op, x, y)
+        }
         if (x != "" || undefined){
             clicked = true;
             y = "";
@@ -47,13 +52,13 @@ document.querySelector("#clear").addEventListener("click", function(){
 
 /* Dot Button */
 document.getElementById("dot").addEventListener("click", function(){
-    if (x.includes(".")){
+    if (x.indexOf(".") > -1){
         document.getElementById("dot").disabled = true;
     }
-    if (y.includes(".")){
+    if (y.indexOf(".") > -1){
         document.getElementById("dot").disabled = true;
     }
-})
+});
 
 /* Equals Button */
 document.querySelector("#equals").addEventListener("click", function(){
@@ -64,27 +69,25 @@ document.querySelector("#equals").addEventListener("click", function(){
     if (y == "" || undefined){
         y = 0;
     }
-    x = parseFloat(x);
-    y = parseFloat(y);
+   
     display.innerHTML = operate(op, x, y)
     x = operate(op, x, y);
     console.log(x);
     console.log(y);
-    console.log(op)
-    x = x.toString();
-    y = y.toString();
-    if (x.includes(".")){
+    if (x.indexOf(".") === -1){
+        document.getElementById("dot").disabled = false;
+    } else {
         document.getElementById("dot").disabled = true;
     }
-    if (y.includes(".")){
-        document.getElementById("dot").disabled = true;
-    } else {
-        document.getElementById("dot").disabled = false;}
+    
+    
     
 });
 
 function operate(op, x, y) 
 {
+    x = parseFloat(x);
+    y = parseFloat(y);
     if (op == "+") {
         x = (x + y);
     } else if (op == "-") {
@@ -97,5 +100,10 @@ function operate(op, x, y)
         return "error.";
     }
     x = Math.round((x + Number.EPSILON) * 100) / 100;
+    if (x == Infinity){
+        return "You can't divide by 0.";
+    }
+    x = x.toString();
+    y = y.toString();
     return x;
 }
