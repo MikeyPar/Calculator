@@ -1,6 +1,4 @@
-var op 
-var x = "";
-var y = "";
+var op = "+", x = "", y = "";
 var display = document.querySelector(".display");
 var operators = document.getElementsByClassName("op");
 var nums = document.getElementsByClassName("num");
@@ -31,14 +29,12 @@ for (let operator of operators){
     });
 }
 
+/* Subtraction Button */
 document.querySelector("#sub").addEventListener("click", function(){
     if (x == ""){
         x += "-";
     }
-
 });
-
-
 
 /* Clear Button */
 document.querySelector("#clear").addEventListener("click", function(){
@@ -54,7 +50,7 @@ document.getElementById("dot").addEventListener("click", function(){
     if (x.includes(".")){
         document.getElementById("dot").disabled = true;
     }
-    if (x.includes(".")){
+    if (y.includes(".")){
         document.getElementById("dot").disabled = true;
     }
 })
@@ -75,13 +71,17 @@ document.querySelector("#equals").addEventListener("click", function(){
     console.log(x);
     console.log(y);
     console.log(op)
-
     x = x.toString();
     y = y.toString();
-    document.getElementById("dot").disabled = false;
+    if (x.includes(".")){
+        document.getElementById("dot").disabled = true;
+    }
+    if (y.includes(".")){
+        document.getElementById("dot").disabled = true;
+    } else {
+        document.getElementById("dot").disabled = false;}
+    
 });
-
-
 
 function operate(op, x, y) 
 {
