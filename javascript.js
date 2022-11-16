@@ -4,6 +4,7 @@ var operators = document.getElementsByClassName("op");
 var nums = document.getElementsByClassName("num");
 var clicked = false;
 var buttons = document.getElementsByTagName("button");
+var eq = false;
 
 /* Number Buttons */
 for (let num of nums){
@@ -21,8 +22,13 @@ for (let num of nums){
 for (let operator of operators){
     operator.addEventListener("click", function(){
         if (x != "" && y != ""){
+            if (eq == true){
+                y = "0";
+            }
             display.innerHTML = operate(op, x, y);
             x = operate(op, x, y);
+            y = "";
+            eq = false;
         }
         if (x != "" || undefined){
             clicked = true;
@@ -63,6 +69,7 @@ document.getElementById("dot").addEventListener("click", function(){
 /* Equals Button */
 document.querySelector("#equals").addEventListener("click", function(){
     clicked = false;
+    eq = true;
     if (x == "" || undefined){
         x = 0;
     }
@@ -79,7 +86,7 @@ document.querySelector("#equals").addEventListener("click", function(){
     } else {
         document.getElementById("dot").disabled = true;
     }
-    y = "";
+
     
     
 });
