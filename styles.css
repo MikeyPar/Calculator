@@ -36,7 +36,6 @@ body {
     font-size: x-large;
     font-weight: bold;
     padding-right: 5px;
-
 }
 
 .nums {
@@ -84,4 +83,15 @@ body {
     margin-top: 0px;
 }
 
+.left {
+    padding-top: 40px;
+}
 
+.clear,
+.equals {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    font-weight: bold;
+    font-size: large;
+}

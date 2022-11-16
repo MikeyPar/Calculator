@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
 </head>
 <body>
     <div class="container">
         <div class="top">
-            <div class="display" id="display">this is the display.</div>
+            <div class="display" id="display"></div>
         </div>
         <div class="bottom">
             <div class="left">
@@ -38,16 +38,14 @@
                 </div>
             </div>
             <div class="right">
+                <button class="clear" id="clear">C</button>
                 <button class="op" id="div">/</button>
                 <button class="op" id="mult">*</button>
                 <button class="op" id="sub">-</button>
                 <button class="op" id="add">+</button>
-                <button class="op" id="equals">=</button>
-                <button onclick="clear_display()" class="op" id="clear">C</button>
+                <button class="equals" id="equals">=</button>
             </div>
         </div>
-        
-
     </div>
 </body>
 </html>
